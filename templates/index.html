@@ -50,26 +50,25 @@
     <div class="container">
 		<div class="col-sm-12">
 			<form action="/" method="post" style="margin-top: 50px; width: 60%; text-align: center; margin-left: 200px ">
+
+				{% if not predict %}
 					<label for="tweet_to_predict"> votre Tweet </label>
-				
-				<div class="row">
-					{% if predict %}
-						<input type="text" name="tweet_to_predict" value={{text_to_predict}}  %/>
-					{% endif %}
-					{% if not predict %}
+					<div class="row"></div>
 						<input type="text" name="tweet_to_predict" placeholder="Entrer votre tweet ..."/>
-					{% endif %}
-					
-					<button type="submit" value="Predict" class="btn btn-primary">Analyse</button>
-				</div>
+						<button type="submit" value="Predict" class="btn btn-primary">Analyse</button>
+					</div>
+				{% endif %}	
 			</form>
 		</div>
 		<div class="col-sm-12">
 			{% if predict %}
-			<div style="width: 90%; margin: auto; text-align: center">
-				<h3> <b>Sentiment {{ label }} <span style="color: green;">{{ accuracy }} %</span> </h3>	
-				<a href="/">Make another prediction</a>
-			</div>
+				<div style="width: 90%; margin: auto; text-align: center">
+					<h3> <b>Sentiment {{ label }} <span style="color: green;">{{ accuracy }} %</span> </h3>	
+					<label for="tweet_to_predict"> votre Tweet </label>
+					<h4 name="tweet_to_predict"> {{text_to_predict}} </h4>
+					<br> <br> <br>
+					<a href="/">Make another prediction</a>
+				</div>
 			{% endif %}
 		</div>
 			
