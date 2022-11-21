@@ -15,8 +15,8 @@ def load__model():
     """
     print('[INFO] Model Loading ........')
     global model
-    model = load_model(MODEL_FOLDER + 'bidirectional_lstm_with_return_sequences_on_embedded_heroku')
-    #model = joblib.load(MODEL_FOLDER + 'bidirectional_lstm_with_return_sequences_on_embedded_heroku.h5')
+    #model = load_model(MODEL_FOLDER + 'bidirectional_lstm_with_return_sequences_on_embedded_heroku')
+    model = load_model(MODEL_FOLDER + 'ffnn_on_count')
     print('[INFO] : Model loaded')
 
 
