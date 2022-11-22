@@ -5,7 +5,7 @@ from keras.models import load_model
 app = Flask(__name__)
 
 STATIC_FOLDER = 'static/'
-#MODEL_FOLDER = STATIC_FOLDER + 'models/'
+MODEL_FOLDER = STATIC_FOLDER + 'models/'
 
 @app.before_first_request
 def load__model():
@@ -14,17 +14,16 @@ def load__model():
     :return: model (global variable)
     """
     print('[INFO] Model Loading ........')
-    #global model
-    ##model = load_model(MODEL_FOLDER + 'bidirectional_lstm_with_return_sequences_on_embedded_heroku')
-    #model = load_model(MODEL_FOLDER + 'ffnn_on_count')
+    global model
+    #model = load_model(MODEL_FOLDER + 'bidirectional_lstm_with_return_sequences_on_embedded_heroku')
+    model = load_model(MODEL_FOLDER + 'ffnn_on_count')
     print('[INFO] : Model loaded')
 
 
 def predict(text_to_predict):
     # Prediction:
-    #y_test_pred_proba = model.predict([text_to_predict], batch_size=1, workers=4,)
-    #result= round(y_test_pred_proba[0][0],2)
-    result=0.67908
+    y_test_pred_proba = model.predict([text_to_predict], batch_size=1, workers=4,)
+    result= round(y_test_pred_proba[0][0],2)
     return result
 
 # Home Page
