@@ -35,10 +35,10 @@ def index():
         pred_prob = predict(text_to_predict)
 
         if pred_prob > .5:
-            label = 'Positif'
+            label = 'Positive 🙂'
             accuracy = round(pred_prob * 100, 2)
         else:
-            label = 'Négatif'
+            label = 'Negative 😒'
             accuracy = round((1 - pred_prob) * 100, 2)
 
         return render_template('index.html', text_to_predict=text_to_predict, label=label, accuracy=accuracy, predict=True)
